@@ -5,12 +5,12 @@
 -- Dumped from database version 16.0
 -- Dumped by pg_dump version 16.0
 
--- Started on 2023-10-13 15:54:42
+-- Started on 2023-10-13 17:12:43
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
+SET client_encoding = 'SQL_ASCII';
 SET standard_conforming_strings = on;
 SELECT pg_catalog.set_config('search_path', '', false);
 SET check_function_bodies = false;
@@ -55,7 +55,7 @@ CREATE SEQUENCE public.category_id_seq
 ALTER SEQUENCE public.category_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4833 (class 0 OID 0)
+-- TOC entry 4843 (class 0 OID 0)
 -- Dependencies: 215
 -- Name: category_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -109,7 +109,7 @@ CREATE SEQUENCE public.product_id_seq
 ALTER SEQUENCE public.product_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4834 (class 0 OID 0)
+-- TOC entry 4844 (class 0 OID 0)
 -- Dependencies: 217
 -- Name: product_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -147,7 +147,7 @@ CREATE SEQUENCE public.sale_id_seq
 ALTER SEQUENCE public.sale_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4835 (class 0 OID 0)
+-- TOC entry 4845 (class 0 OID 0)
 -- Dependencies: 220
 -- Name: sale_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -204,7 +204,7 @@ CREATE SEQUENCE public.stardust_user_id_seq
 ALTER SEQUENCE public.stardust_user_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4836 (class 0 OID 0)
+-- TOC entry 4846 (class 0 OID 0)
 -- Dependencies: 223
 -- Name: stardust_user_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -242,6 +242,91 @@ ALTER TABLE ONLY public.sale ALTER COLUMN id SET DEFAULT nextval('public.sale_id
 --
 
 ALTER TABLE ONLY public.stardust_user ALTER COLUMN id SET DEFAULT nextval('public.stardust_user_id_seq'::regclass);
+
+
+--
+-- TOC entry 4829 (class 0 OID 24599)
+-- Dependencies: 216
+-- Data for Name: category; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- TOC entry 4831 (class 0 OID 24613)
+-- Dependencies: 218
+-- Data for Name: product; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- TOC entry 4832 (class 0 OID 24622)
+-- Dependencies: 219
+-- Data for Name: product_category; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- TOC entry 4834 (class 0 OID 24638)
+-- Dependencies: 221
+-- Data for Name: sale; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- TOC entry 4835 (class 0 OID 24644)
+-- Dependencies: 222
+-- Data for Name: sale_product; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- TOC entry 4837 (class 0 OID 24660)
+-- Dependencies: 224
+-- Data for Name: stardust_user; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.stardust_user VALUES (1, 'admin01', 'admin@admin.teste', true, '123456', 'Rua A, 123', 'Leo Oliveira');
+
+
+--
+-- TOC entry 4847 (class 0 OID 0)
+-- Dependencies: 215
+-- Name: category_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.category_id_seq', 1, false);
+
+
+--
+-- TOC entry 4848 (class 0 OID 0)
+-- Dependencies: 217
+-- Name: product_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.product_id_seq', 1, false);
+
+
+--
+-- TOC entry 4849 (class 0 OID 0)
+-- Dependencies: 220
+-- Name: sale_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.sale_id_seq', 1, false);
+
+
+--
+-- TOC entry 4850 (class 0 OID 0)
+-- Dependencies: 223
+-- Name: stardust_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.stardust_user_id_seq', 2, true);
 
 
 --
@@ -370,7 +455,7 @@ ALTER TABLE ONLY public.sale_product
     ADD CONSTRAINT sp_sale_id FOREIGN KEY (sale_id) REFERENCES public.sale(id);
 
 
--- Completed on 2023-10-13 15:54:42
+-- Completed on 2023-10-13 17:12:43
 
 --
 -- PostgreSQL database dump complete
