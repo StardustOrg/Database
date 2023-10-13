@@ -16,7 +16,7 @@ Para instanciar o banco, siga os passos abaixo:
 
 2. Execute os seguintes scripts na ordem indicada:
 
-   - Script de criação do banco: `stardust_db_schema.sql` (última atualização: 13/10/2023)
+   - Script de criação do banco: `stardust_db_schema.sql` _(última atualização: 13/10/2023)_
    - Script de população do banco: `ainda-não-disponível.sql`
 
    O script de população ainda não está disponível, mas será adicionado posteriormente.
