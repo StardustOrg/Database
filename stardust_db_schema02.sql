@@ -5,7 +5,7 @@
 -- Dumped from database version 16.0
 -- Dumped by pg_dump version 16.0
 
--- Started on 2023-10-13 17:12:43
+-- Started on 2023-11-09 10:05:32
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -24,19 +24,19 @@ SET default_table_access_method = heap;
 
 --
 -- TOC entry 216 (class 1259 OID 24599)
--- Name: category; Type: TABLE; Schema: public; Owner: postgres
+-- Name: artist; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.category (
+CREATE TABLE public.artist (
     id integer NOT NULL,
     name character varying NOT NULL,
-    icon_path character varying NOT NULL,
-    cover_path character varying NOT NULL,
+    icon_url character varying NOT NULL,
+    cover_url character varying NOT NULL,
     group_id integer
 );
 
 
-ALTER TABLE public.category OWNER TO postgres;
+ALTER TABLE public.artist OWNER TO postgres;
 
 --
 -- TOC entry 215 (class 1259 OID 24598)
@@ -55,12 +55,12 @@ CREATE SEQUENCE public.category_id_seq
 ALTER SEQUENCE public.category_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4843 (class 0 OID 0)
+-- TOC entry 4833 (class 0 OID 0)
 -- Dependencies: 215
 -- Name: category_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.category_id_seq OWNED BY public.category.id;
+ALTER SEQUENCE public.category_id_seq OWNED BY public.artist.id;
 
 
 --
@@ -81,16 +81,16 @@ ALTER TABLE public.product OWNER TO postgres;
 
 --
 -- TOC entry 219 (class 1259 OID 24622)
--- Name: product_category; Type: TABLE; Schema: public; Owner: postgres
+-- Name: product_artist; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.product_category (
+CREATE TABLE public.product_artist (
     product_id integer NOT NULL,
-    category_id integer NOT NULL
+    artist_id integer NOT NULL
 );
 
 
-ALTER TABLE public.product_category OWNER TO postgres;
+ALTER TABLE public.product_artist OWNER TO postgres;
 
 --
 -- TOC entry 217 (class 1259 OID 24612)
@@ -109,7 +109,7 @@ CREATE SEQUENCE public.product_id_seq
 ALTER SEQUENCE public.product_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4844 (class 0 OID 0)
+-- TOC entry 4834 (class 0 OID 0)
 -- Dependencies: 217
 -- Name: product_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -147,7 +147,7 @@ CREATE SEQUENCE public.sale_id_seq
 ALTER SEQUENCE public.sale_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4845 (class 0 OID 0)
+-- TOC entry 4835 (class 0 OID 0)
 -- Dependencies: 220
 -- Name: sale_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -204,7 +204,7 @@ CREATE SEQUENCE public.stardust_user_id_seq
 ALTER SEQUENCE public.stardust_user_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4846 (class 0 OID 0)
+-- TOC entry 4836 (class 0 OID 0)
 -- Dependencies: 223
 -- Name: stardust_user_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -214,10 +214,10 @@ ALTER SEQUENCE public.stardust_user_id_seq OWNED BY public.stardust_user.id;
 
 --
 -- TOC entry 4657 (class 2604 OID 24602)
--- Name: category id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: artist id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.category ALTER COLUMN id SET DEFAULT nextval('public.category_id_seq'::regclass);
+ALTER TABLE ONLY public.artist ALTER COLUMN id SET DEFAULT nextval('public.category_id_seq'::regclass);
 
 
 --
@@ -245,106 +245,21 @@ ALTER TABLE ONLY public.stardust_user ALTER COLUMN id SET DEFAULT nextval('publi
 
 
 --
--- TOC entry 4829 (class 0 OID 24599)
--- Dependencies: 216
--- Data for Name: category; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-
-
---
--- TOC entry 4831 (class 0 OID 24613)
--- Dependencies: 218
--- Data for Name: product; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-
-
---
--- TOC entry 4832 (class 0 OID 24622)
--- Dependencies: 219
--- Data for Name: product_category; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-
-
---
--- TOC entry 4834 (class 0 OID 24638)
--- Dependencies: 221
--- Data for Name: sale; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-
-
---
--- TOC entry 4835 (class 0 OID 24644)
--- Dependencies: 222
--- Data for Name: sale_product; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-
-
---
--- TOC entry 4837 (class 0 OID 24660)
--- Dependencies: 224
--- Data for Name: stardust_user; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-INSERT INTO public.stardust_user VALUES (1, 'admin01', 'admin@admin.teste', true, '123456', 'Rua A, 123', 'Leo Oliveira');
-
-
---
--- TOC entry 4847 (class 0 OID 0)
--- Dependencies: 215
--- Name: category_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.category_id_seq', 1, false);
-
-
---
--- TOC entry 4848 (class 0 OID 0)
--- Dependencies: 217
--- Name: product_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.product_id_seq', 1, false);
-
-
---
--- TOC entry 4849 (class 0 OID 0)
--- Dependencies: 220
--- Name: sale_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.sale_id_seq', 1, false);
-
-
---
--- TOC entry 4850 (class 0 OID 0)
--- Dependencies: 223
--- Name: stardust_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.stardust_user_id_seq', 2, true);
-
-
---
 -- TOC entry 4664 (class 2606 OID 24606)
--- Name: category category_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: artist category_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.category
+ALTER TABLE ONLY public.artist
     ADD CONSTRAINT category_pkey PRIMARY KEY (id);
 
 
 --
 -- TOC entry 4668 (class 2606 OID 24626)
--- Name: product_category product_category_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: product_artist product_category_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.product_category
-    ADD CONSTRAINT product_category_pkey PRIMARY KEY (product_id, category_id);
+ALTER TABLE ONLY public.product_artist
+    ADD CONSTRAINT product_category_pkey PRIMARY KEY (product_id, artist_id);
 
 
 --
@@ -403,28 +318,28 @@ ALTER TABLE ONLY public.stardust_user
 
 --
 -- TOC entry 4679 (class 2606 OID 24607)
--- Name: category category_group_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: artist artist_group_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.category
-    ADD CONSTRAINT category_group_id FOREIGN KEY (group_id) REFERENCES public.category(id) NOT VALID;
+ALTER TABLE ONLY public.artist
+    ADD CONSTRAINT artist_group_id FOREIGN KEY (group_id) REFERENCES public.artist(id) NOT VALID;
 
 
 --
 -- TOC entry 4680 (class 2606 OID 24632)
--- Name: product_category pc_category_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: product_artist pc_artist_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.product_category
-    ADD CONSTRAINT pc_category_id FOREIGN KEY (category_id) REFERENCES public.category(id);
+ALTER TABLE ONLY public.product_artist
+    ADD CONSTRAINT pc_artist_id FOREIGN KEY (artist_id) REFERENCES public.artist(id);
 
 
 --
 -- TOC entry 4681 (class 2606 OID 24627)
--- Name: product_category pc_product_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: product_artist pc_product_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.product_category
+ALTER TABLE ONLY public.product_artist
     ADD CONSTRAINT pc_product_id FOREIGN KEY (product_id) REFERENCES public.product(id);
 
 
@@ -455,7 +370,7 @@ ALTER TABLE ONLY public.sale_product
     ADD CONSTRAINT sp_sale_id FOREIGN KEY (sale_id) REFERENCES public.sale(id);
 
 
--- Completed on 2023-10-13 17:12:43
+-- Completed on 2023-11-09 10:05:32
 
 --
 -- PostgreSQL database dump complete
