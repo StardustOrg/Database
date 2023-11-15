@@ -5,7 +5,7 @@
 -- Dumped from database version 16.0
 -- Dumped by pg_dump version 16.0
 
--- Started on 2023-11-10 08:46:37
+-- Started on 2023-11-15 13:16:17
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -50,6 +50,12 @@ INSERT INTO public.artist VALUES (23, 'The8', 'https://raw.githubusercontent.com
 INSERT INTO public.artist VALUES (24, 'Seungkwan', 'https://raw.githubusercontent.com/StardustOrg/stardust-assets/main/svt/seungkwan_icon.jpg', 'https://raw.githubusercontent.com/StardustOrg/stardust-assets/main/svt/seungkwan_cover.jpg', 13);
 INSERT INTO public.artist VALUES (25, 'Vernon', 'https://raw.githubusercontent.com/StardustOrg/stardust-assets/main/svt/vernon_icon.jpg', 'https://raw.githubusercontent.com/StardustOrg/stardust-assets/main/svt/vernon_cover.jpg', 13);
 INSERT INTO public.artist VALUES (26, 'Dino', 'https://raw.githubusercontent.com/StardustOrg/stardust-assets/main/svt/dino_icon.jpg', 'https://raw.githubusercontent.com/StardustOrg/stardust-assets/main/svt/dino_cover.jpg', 13);
+INSERT INTO public.artist VALUES (34, 'LE SSERAFIM', 'https://raw.githubusercontent.com/StardustOrg/stardust-assets/main/lesserafim/lesserafim_icon.jpg', 'https://raw.githubusercontent.com/StardustOrg/stardust-assets/main/lesserafim/lesserafim_cover.jpg', NULL);
+INSERT INTO public.artist VALUES (35, 'Kim Chaewon', 'https://raw.githubusercontent.com/StardustOrg/stardust-assets/main/lesserafim/chaewon_icon.jpg', 'https://raw.githubusercontent.com/StardustOrg/stardust-assets/main/lesserafim/chaewon_cover.jpg', 34);
+INSERT INTO public.artist VALUES (36, 'Sakura', 'https://raw.githubusercontent.com/StardustOrg/stardust-assets/main/lesserafim/sakura_icon.jpg', 'https://raw.githubusercontent.com/StardustOrg/stardust-assets/main/lesserafim/sakura_cover.jpg', 34);
+INSERT INTO public.artist VALUES (37, 'Huh Yunjin', 'https://raw.githubusercontent.com/StardustOrg/stardust-assets/main/lesserafim/yujin_icon.jpg', 'https://raw.githubusercontent.com/StardustOrg/stardust-assets/main/lesserafim/yujin_cover.jpg', 34);
+INSERT INTO public.artist VALUES (38, 'Kazuha', 'https://raw.githubusercontent.com/StardustOrg/stardust-assets/main/lesserafim/kazuha_icon.jpg', 'https://raw.githubusercontent.com/StardustOrg/stardust-assets/main/lesserafim/kazuha_cover.jpg', 34);
+INSERT INTO public.artist VALUES (39, 'Hong Eunchae', 'https://raw.githubusercontent.com/StardustOrg/stardust-assets/main/lesserafim/eunchae_icon.jpg', 'https://raw.githubusercontent.com/StardustOrg/stardust-assets/main/lesserafim/eunchae_cover.jpg', 34);
 
 
 --
@@ -58,6 +64,14 @@ INSERT INTO public.artist VALUES (26, 'Dino', 'https://raw.githubusercontent.com
 -- Data for Name: product; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.product VALUES (1, 'NewJeans Photocard "Bunnyland" Version', 4, 'https://raw.githubusercontent.com/StardustOrg/stardust-assets/main/nj/photocard/hanni-bunnyland.png', 100.42);
+INSERT INTO public.product VALUES (2, 'Official New Jeans Lightstick Photocards / Bunnies Tokkis', 10, 'https://raw.githubusercontent.com/StardustOrg/stardust-assets/main/nj/photocard/hanni-lightstick.png', 50.95);
+INSERT INTO public.product VALUES (3, 'NewJeans Haerin OMG Photocard', 6, 'https://raw.githubusercontent.com/StardustOrg/stardust-assets/main/nj/photocard/haerin-omg-pc.png', 75.00);
+INSERT INTO public.product VALUES (4, 'Huh Yujin "Antifragile" Version 01', 6, 'https://raw.githubusercontent.com/StardustOrg/stardust-assets/main/lesserafim/photocards/yujin-atifragile.png', 35.62);
+INSERT INTO public.product VALUES (5, 'Sakura "Antifragile" Version 01', 1, 'https://raw.githubusercontent.com/StardustOrg/stardust-assets/main/lesserafim/photocards/sakura-atifragile.png', 35.62);
+INSERT INTO public.product VALUES (6, 'Kim Chaewon "Antifragile" Version 01', 2, 'https://raw.githubusercontent.com/StardustOrg/stardust-assets/main/lesserafim/photocards/chaewon-atifragile.png', 35.62);
+INSERT INTO public.product VALUES (7, 'Kazuha "Antifragile" Version 01', 5, 'https://raw.githubusercontent.com/StardustOrg/stardust-assets/main/lesserafim/photocards/kazuha-atifragile.png', 35.62);
+INSERT INTO public.product VALUES (8, 'Eunchae "Antifragile" Version 01', 15, 'https://raw.githubusercontent.com/StardustOrg/stardust-assets/main/lesserafim/photocards/eunchae-atifragile.png', 35.62);
 
 
 --
@@ -66,6 +80,22 @@ INSERT INTO public.artist VALUES (26, 'Dino', 'https://raw.githubusercontent.com
 -- Data for Name: product_artist; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.product_artist VALUES (1, 1);
+INSERT INTO public.product_artist VALUES (1, 3);
+INSERT INTO public.product_artist VALUES (2, 1);
+INSERT INTO public.product_artist VALUES (2, 3);
+INSERT INTO public.product_artist VALUES (3, 1);
+INSERT INTO public.product_artist VALUES (3, 5);
+INSERT INTO public.product_artist VALUES (4, 34);
+INSERT INTO public.product_artist VALUES (4, 37);
+INSERT INTO public.product_artist VALUES (5, 34);
+INSERT INTO public.product_artist VALUES (5, 36);
+INSERT INTO public.product_artist VALUES (6, 34);
+INSERT INTO public.product_artist VALUES (6, 35);
+INSERT INTO public.product_artist VALUES (7, 34);
+INSERT INTO public.product_artist VALUES (7, 38);
+INSERT INTO public.product_artist VALUES (8, 34);
+INSERT INTO public.product_artist VALUES (8, 39);
 
 
 --
@@ -76,6 +106,7 @@ INSERT INTO public.artist VALUES (26, 'Dino', 'https://raw.githubusercontent.com
 
 INSERT INTO public.stardust_user VALUES (2, 'admin01', 'admin@admin.teste', true, '123456', 'Rua A, 123', 'Leo Oliveira');
 INSERT INTO public.stardust_user VALUES (3, 'teste02', 'tes0ads@teste.com', false, '123456', 'Rua 123', 'Yanna Teste');
+INSERT INTO public.stardust_user VALUES (6, 'yannaa', 'test@teste.com', false, '123456', 'Rua 123', 'Yanna Teste');
 
 
 --
@@ -100,7 +131,7 @@ INSERT INTO public.stardust_user VALUES (3, 'teste02', 'tes0ads@teste.com', fals
 -- Name: category_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.category_id_seq', 26, true);
+SELECT pg_catalog.setval('public.category_id_seq', 39, true);
 
 
 --
@@ -109,7 +140,7 @@ SELECT pg_catalog.setval('public.category_id_seq', 26, true);
 -- Name: product_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.product_id_seq', 1, false);
+SELECT pg_catalog.setval('public.product_id_seq', 18, true);
 
 
 --
@@ -127,10 +158,10 @@ SELECT pg_catalog.setval('public.sale_id_seq', 1, false);
 -- Name: stardust_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.stardust_user_id_seq', 5, true);
+SELECT pg_catalog.setval('public.stardust_user_id_seq', 6, true);
 
 
--- Completed on 2023-11-10 08:46:38
+-- Completed on 2023-11-15 13:16:17
 
 --
 -- PostgreSQL database dump complete
