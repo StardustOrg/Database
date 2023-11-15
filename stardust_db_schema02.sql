@@ -5,7 +5,7 @@
 -- Dumped from database version 16.0
 -- Dumped by pg_dump version 16.0
 
--- Started on 2023-11-09 10:05:32
+-- Started on 2023-11-15 13:48:49
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -73,7 +73,7 @@ CREATE TABLE public.product (
     description character varying NOT NULL,
     amount integer DEFAULT 0 NOT NULL,
     picture_path character varying NOT NULL,
-    price money NOT NULL
+    price numeric NOT NULL
 );
 
 
@@ -370,7 +370,7 @@ ALTER TABLE ONLY public.sale_product
     ADD CONSTRAINT sp_sale_id FOREIGN KEY (sale_id) REFERENCES public.sale(id);
 
 
--- Completed on 2023-11-09 10:05:32
+-- Completed on 2023-11-15 13:48:49
 
 --
 -- PostgreSQL database dump complete
